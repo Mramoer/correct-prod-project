@@ -1,0 +1,12 @@
+{
+	"presets": [
+		"@babel/preset-env", // Пресет для работы с современными версиями JavaScript
+		"@babel/preset-react" // Пресет для React (если используется)
+	],
+	"plugins": [
+		[
+			"i18next-extract",
+			{ "locales": ["ru", "en"], "keyAsDefaultValue": true } // Опции для извлечения ключей локализации
+		]
+	]
+}

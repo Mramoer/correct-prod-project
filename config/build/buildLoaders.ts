@@ -1,14 +1,9 @@
-import webpack, { LoaderContext } from 'webpack';
-import { BuildOptions } from './types/config';
+import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-	const typescriptLoader = {
-		test: /\.tsx?$/,
-		use: 'ts-loader',
-		exclude: /node_modules/,
-	};
-	const scssLoader = {
+	const cssLoader = {
 		test: /\.s[ac]ss$/i,
 		use: [
 			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -16,7 +11,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 				loader: 'css-loader',
 				options: {
 					modules: {
-						auto: /\.module?$/i,
+						auto: (resPath: string) => Boolean(resPath.includes('.module.')),
 						localIdentName: isDev
 							? '[path][name]__[local]--[hash:base64:5]'
 							: '[hash:base64:8]',
@@ -26,9 +21,44 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 			'sass-loader',
 		],
 	};
-	const minicssLoader = {
-		test: /\.css$/i,
-		use: [MiniCssExtractPlugin.loader, 'css-loader'],
+	const svgLoader = {
+		test: /\.svg$/,
+		use: ['@svgr/webpack'],
 	};
-	return [typescriptLoader, scssLoader, minicssLoader];
+	const fileLoader = {
+		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+		use: [
+			{
+				loader: 'file-loader',
+			},
+		],
+	};
+	// Если не используем тайпскрипт - нужен babel-loader
+	const typescriptLoader = {
+		test: /\.tsx?$/,
+		use: 'ts-loader',
+		exclude: /node_modules/,
+	};
+	const babelLoader = {
+		test: /\.m?(js|tsx|jsx)$/,
+		exclude: /node_modules/,
+		use: {
+			loader: 'babel-loader',
+			options: {
+				presets: [
+					'@babel/preset-env', // Пресет для работы с современными версиями JavaScript
+					'@babel/preset-react', // Пресет для React (если используется)
+					'@babel/preset-typescript', // Пресет для TypeScript (если используется)
+				],
+				plugins: [
+					[
+						'i18next-extract',
+						{ locales: ['ru', 'en'], keyAsDefaultValue: true },
+					],
+				],
+			},
+		},
+	};
+
+	return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
