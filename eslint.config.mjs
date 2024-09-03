@@ -12,7 +12,7 @@ export default [
 		ignores: ['node_modules/**'],
 		languageOptions: {
 			parser: tsParser,
-			globals: globals.browser,
+			globals: [globals.browser],
 			ecmaVersion: 'latest',
 			sourceType: 'module',
 		},
