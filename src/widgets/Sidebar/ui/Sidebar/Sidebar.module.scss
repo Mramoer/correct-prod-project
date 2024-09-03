@@ -5,9 +5,11 @@
 	position: relative;
 	transition: width 0.3s ease;
 }
+
 .collapsed {
 	width: var(--sidebar-width-collapsed);
 }
+
 .switchButtons {
 	position: absolute;
 	bottom: 20px;
