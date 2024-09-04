@@ -1,7 +1,8 @@
 {
 	"presets": [
 		"@babel/preset-env", // Пресет для работы с современными версиями JavaScript
-		"@babel/preset-react" // Пресет для React (если используется)
+		"@babel/preset-react",
+		"@babel/preset-typescript"
 	],
 	"plugins": [
 		[
