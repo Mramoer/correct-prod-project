@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import * as cls from './ThemeButton.module.scss';
+import cls from './ThemeButton.module.scss';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import DarkTheme from 'shared/assets/icons/dark.svg';
 import LightTheme from 'shared/assets/icons/light.svg';

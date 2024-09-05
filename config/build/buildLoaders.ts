@@ -10,37 +10,35 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 			{
 				loader: 'css-loader',
 				options: {
-					modules: {
-						auto: (resPath: string) => {
-							Boolean(resPath.includes('.module.'));
-						},
-						localIdentName: isDev
-							? '[path][name]__[local]--[hash:base64:5]'
-							: '[hash:base64:8]',
-					},
+					modules: true,
 				},
 			},
+			'postcss-loader',
 			'sass-loader',
 		],
 	};
+
 	const svgLoader = {
 		test: /\.svg$/,
 		use: ['@svgr/webpack'],
 	};
+
 	const fileLoader = {
 		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
-		use: [
-			{
-				loader: 'file-loader',
-			},
-		],
+		type: 'asset/resource',
 	};
-	// Если не используем тайпскрипт - нужен babel-loader
+
 	const typescriptLoader = {
 		test: /\.tsx?$/,
 		use: 'ts-loader',
 		exclude: /node_modules/,
 	};
+
+	const postcssLoader = {
+		test: /\.css$/,
+		use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader'],
+	};
+
 	const babelLoader = {
 		test: /\.m?(js|tsx|jsx)$/,
 		exclude: /node_modules/,
@@ -48,9 +46,9 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 			loader: 'babel-loader',
 			options: {
 				presets: [
-					'@babel/preset-env', // Пресет для работы с современными версиями JavaScript
-					'@babel/preset-react', // Пресет для React (если используется)
-					'@babel/preset-typescript', // Пресет для TypeScript (если используется)
+					'@babel/preset-env',
+					'@babel/preset-react',
+					'@babel/preset-typescript',
 				],
 				plugins: [
 					[
@@ -62,5 +60,12 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 		},
 	};
 
-	return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
+	return [
+		fileLoader,
+		svgLoader,
+		babelLoader,
+		typescriptLoader,
+		cssLoader,
+		postcssLoader,
+	];
 }

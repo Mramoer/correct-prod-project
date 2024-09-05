@@ -1,4 +1,8 @@
 {
-	"Перевод": "Translate",
-	"Язык": "English"
+  "Перевод": "Translate",
+  "Язык": "English",
+  "Страница не найдена": "Page Not Found",
+  "toggle": "toggle",
+  "Home": "Домой",
+  "About": "About"
 }

@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client';
-import { someFn } from './test';
 import App from './app/App';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './app/providers/ThemeProvider';
@@ -17,5 +16,3 @@ root.render(
 		</BrowserRouter>
 	</Suspense>
 );
-
-someFn();
