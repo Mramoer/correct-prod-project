@@ -11,8 +11,11 @@
 		"build:dev": "webpack --env mode=development",
 		"lint:ts": "npx eslint '**/*.{ts, tsx}'",
 		"lint:ts:fix": "npx eslint '**/*.{ts, tsx}' --fix",
-		"stylelint:ts": "npx stylelint '**/*.scss'",
-		"stylelint:ts:fix": "npx stylelint '**/*.scss' --fix"
+		"stylelint:ts": "npx stylelint '**/*.sass'",
+		"stylelint:ts:fix": "npx stylelint '**/*.sass' --fix"
+	},
+	"exports": {
+		".": "src/app/styles/variables/global.sass"
 	},
 	"keywords": [],
 	"author": "",

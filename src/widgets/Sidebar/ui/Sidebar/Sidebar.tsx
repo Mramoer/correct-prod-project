@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Sidebar.module.scss';
+import * as style from './Sidebar.module.scss';
 import { useState } from 'react';
 import { ThemeButton } from 'widgets/ThemeButton';
 import { LangButton } from 'shared/ui/LangButton/index';
@@ -15,11 +15,14 @@ export const Sidebar = ({ className }: SidebarProps) => {
 		setCollapsed((prev) => !prev);
 	};
 	return (
-		<div>
+		<div
+			className={classNames(style.Sidebar, { [style.collapsed]: collapsed }, [
+				className,
+			])}>
 			<button onClick={onToggle}>{t('toggle')}</button>
-			<div>
+			<div className={style.switchButtons}>
 				<ThemeButton />
-				<LangButton />
+				<LangButton className={style.lang} />
 			</div>
 		</div>
 	);

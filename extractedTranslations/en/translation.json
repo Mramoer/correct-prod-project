@@ -1,10 +1,13 @@
 {
   "About": "About",
+  "An error occured": "An error occured",
+  "Error": "Error",
   "Home": "Home",
+  "Refresh page": "Refresh page",
   "toggle": "toggle",
   "Главная страница": "Главная страница",
   "О нас": "О нас",
-  "Страница не найдена": "Страница не найдена",
+  "Страница не найдена": "Page not found",
   "Язык": "Язык",
   "всем привет": "всем привет"
 }

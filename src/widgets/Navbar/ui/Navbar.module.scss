@@ -1,6 +1,7 @@
+@use '/src/styles/global.scss' as *;
+
 .Navbar {
-	width: 100%;
-	height: var(--navbar-height);
+	height: $navbar-height;
 	background: var(--inverted-bg-color);
 	display: flex;
 	align-items: center;

@@ -1,24 +1,26 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
-import './styles/index.scss';
 import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import * as style from './App.module.scss';
 
-const App = () => {
+import { Suspense } from 'react';
+
+function App() {
 	const { theme } = useTheme();
+
 	return (
-		<div
-			className={classNames('app', { hovered: true, selected: false }, [
-				theme,
-			])}>
-			<Navbar />
-			<div className='content-page'>
-				<Sidebar />
-				<AppRouter />
-			</div>
+		<div className={classNames(style.App, {}, [style[theme]])}>
+			<Suspense fallback=''>
+				<Navbar />
+				<div className={style.contentPage}>
+					<Sidebar />
+					<AppRouter />
+				</div>
+			</Suspense>
 		</div>
 	);
-};
+}
 
 export default App;

@@ -3,6 +3,9 @@
   "Язык": "English",
   "Страница не найдена": "Page Not Found",
   "toggle": "toggle",
-  "Home": "Домой",
-  "About": "About"
+  "Home": "Main page",
+  "About": "About",
+  "An error occured": "An error occured",
+  "Refresh page": "Refresh page",
+  "Error": "Error"
 }

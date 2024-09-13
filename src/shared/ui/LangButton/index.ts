@@ -1,3 +1,3 @@
-import { LangButton } from './LangButton/LangButton';
+import { LangButton } from './ui/LangButton';
 
 export { LangButton };

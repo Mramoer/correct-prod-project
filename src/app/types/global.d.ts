@@ -1,6 +1,6 @@
-declare module '*module.scss' {
-	const classNames: { [key: string]: string };
-	export default classNames;
+declare module '*.module.scss' {
+	const classes: { [key: string]: string };
+	export = classes;
 }
 declare module '*.jpg';
 declare module '*.jpeg';

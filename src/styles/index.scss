@@ -1,10 +1,9 @@
-@import 'variables/global';
-@import 'reset';
-@import 'themes/light';
-@import 'themes/dark';
+@use './global.scss' as *;
+@use 'themes/light' as *;
+@use 'themes/dark' as *;
 
-.app {
-	font: var(--font-m);
+.App {
+	font: $font-m;
 	background: var(--bg-color);
 	color: var(--primary-color);
 	min-height: 100vh;
@@ -17,5 +16,9 @@
 .page-wrapper {
 	flex-grow: 1;
 	padding: 20px;
-	width: 100%;
+}
+
+html,
+body {
+	margin: 0;
 }

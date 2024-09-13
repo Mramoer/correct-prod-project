@@ -41,6 +41,7 @@ export default [
 			'react/react-in-jsx-scope': 'off',
 			'i18next/no-literal-string': ['error', { markupOnly: true }],
 			'max-len': ['warn', { ignoreComments: true }],
+			'react/prop-types': 'off',
 		},
 		settings: {
 			react: {

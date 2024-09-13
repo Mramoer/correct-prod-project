@@ -1,0 +1,19 @@
+@use '../styles/global.scss' as *;
+@use '../styles/themes/dark';
+@use '../styles/themes/light';
+
+.App {
+	font: $font-m;
+	background: var(--bg-color);
+	color: var(--primary-color);
+	min-height: 100vh;
+}
+
+.contentPage {
+	display: flex;
+}
+
+.pageWrapper {
+	flex-grow: 1;
+	padding: 20px;
+}

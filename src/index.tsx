@@ -4,15 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './app/providers/ThemeProvider';
 import 'shared/config/i18n/i18n';
 import { Suspense } from 'react';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
-	<Suspense fallback=''>
-		<BrowserRouter>
+	<BrowserRouter>
+		<ErrorBoundary>
 			<ThemeProvider>
 				<App />
 			</ThemeProvider>
-		</BrowserRouter>
-	</Suspense>
+		</ErrorBoundary>
+	</BrowserRouter>
 );
