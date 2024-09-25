@@ -4,8 +4,6 @@ import * as style from './Button.module.scss';
 
 export enum ThemeEnum {
 	CLEAR = 'clear',
-	DARK = 'dark',
-	LIGHT = 'light',
 }
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;

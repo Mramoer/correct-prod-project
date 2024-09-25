@@ -39,8 +39,8 @@ export default [
 			'@typescript-eslint/no-unused-vars': 'warn',
 			'no-undef': 'off',
 			'react/react-in-jsx-scope': 'off',
-			'i18next/no-literal-string': ['error', { markupOnly: true }],
-			'max-len': ['warn', { ignoreComments: true }],
+			'i18next/no-literal-string': ['warn', { markupOnly: true }],
+			'max-len': ['warn', { ignoreComments: true, code: 100 }],
 			'react/prop-types': 'off',
 		},
 		settings: {

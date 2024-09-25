@@ -1,3 +1,6 @@
+@use '/src/styles/themes/dark';
+@use '/src/styles/themes/light';
+
 .Button {
 	cursor: pointer;
 	color: var(--primary-color);

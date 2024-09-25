@@ -4,12 +4,11 @@ import path from 'path';
 
 export function buildResolvers(options: BuildOptions): ResolveOptions {
 	return {
-		extensions: ['.tsx', '.ts', '.js', '.sass', '.scss'],
+		extensions: ['.js', '.jsx', '.ts', '.tsx', '.sass', '.scss'],
 		preferAbsolute: true,
-		modules: [options.paths.src, 'node_modules'],
+		modules: [path.resolve(__dirname, 'src'), 'node_modules'],
 		mainFiles: ['index'],
-		fallback: {
-			events: false,
-		},
+		alias: {},
+		roots: [__dirname, 'src'],
 	};
 }
