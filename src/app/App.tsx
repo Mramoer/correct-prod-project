@@ -1,4 +1,4 @@
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
+import { useTheme } from '../app/providers/ThemeProvider/lib/useTheme';
 import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';

@@ -9,10 +9,7 @@
 		"allowJs": true,
 		"moduleResolution": "Node",
 		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
-		"paths": {
-			"*": ["./src/*"]
-		}
+		"esModuleInterop": true
 	},
 	"ts-node": {
 		"compilerOptions": {
@@ -20,5 +17,5 @@
 			"types": ["node", "jest", "@testing-library/jest-dom"]
 		}
 	},
-	"include": ["src", ".config/jest/setupTests.js"]
+	"include": ["src", "./config/jest/setupTests.ts"]
 }
