@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeEnum } from './Button';
-import Button from './Button';
+import { Button } from './Button';
 
 const meta = {
 	title: 'shared/Button',
@@ -14,10 +14,9 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
 	args: {
 		theme: ThemeEnum.OUTLINE,
-		children: 'hello',
 	},
-	render: ({ children }) => {
-		return <Button className='outline'>{children}</Button>;
+	render: () => {
+		return <Button className='outline'>hello</Button>;
 	},
 };
 

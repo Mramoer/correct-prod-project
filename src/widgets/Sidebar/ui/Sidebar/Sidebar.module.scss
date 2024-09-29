@@ -1,6 +1,7 @@
 @use '/src/styles/themes/light.scss' as *;
 @use '/src/styles/themes/dark.scss' as *;
 @use '/src/styles/index.scss' as *;
+@use '/src/styles/global.scss' as *;
 
 .Sidebar {
 	height: calc(100vh - 90px);
