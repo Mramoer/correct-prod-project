@@ -1,8 +1,10 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
-import { buildCssLoader } from './loaders/cssloader';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({
+	isDev = true,
+}: BuildOptions): webpack.RuleSetRule[] {
 	const svgLoader = {
 		test: /\.svg$/,
 		use: ['@svgr/webpack'],
@@ -27,7 +29,22 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 			},
 		},
 	};
-	const cssLoaders = buildCssLoader(isDev);
+	const cssLoader = {
+		// Обработка для .module.scss файлов (CSS модули)
+		test: /\.s[ac]ss$/i,
+		use: [
+			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+			{
+				loader: 'css-loader',
+				options: {
+					modules: {
+						localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:5]',
+					},
+				},
+			},
+			'sass-loader',
+		],
+	};
 	const typescriptLoader = {
 		test: /\.(ts|tsx)$/i,
 		use: 'ts-loader',
@@ -39,5 +56,5 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 		type: 'asset/resource',
 	};
 
-	return [fileLoader, svgLoader, babelLoader, typescriptLoader, ...cssLoaders];
+	return [fileLoader, svgLoader, babelLoader, typescriptLoader, cssLoader];
 }
