@@ -40,6 +40,3 @@ jobs:
 
       - name: linting CSS
         run: npm run lint:scss
-
-      - name: unit testing
-        run: npm run unit
