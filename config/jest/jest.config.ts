@@ -36,9 +36,7 @@ const config: Config = {
 
 	roots: ['<rootDir>'],
 
-	rootDir: '../../',
-
-	setupFilesAfterEnv: ['../../config/jest/setupTests.ts'],
+	setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
 
 	moduleDirectories: ['node_modules', 'src'],
 	testEnvironment: 'jsdom',
