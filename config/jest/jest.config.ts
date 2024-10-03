@@ -29,14 +29,15 @@ const config: Config = {
 		'json',
 		'node',
 	],
+	rootDir: '../../',
 
-	testMatch: ['../../src/**/*(*.)+(spec|test).[tj]s?(x)'],
+	testMatch: ['<rootDir>/src/**/*(*.)+(spec|test).[tj]s?(x)'],
 
-	modulePaths: ['<rootDir>../../src'],
+	modulePaths: ['<rootDir>/src'],
 
 	roots: ['<rootDir>'],
 
-	setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
+	setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
 
 	moduleDirectories: ['node_modules', 'src'],
 	testEnvironment: 'jsdom',

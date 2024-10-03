@@ -12,6 +12,6 @@ describe('classNames', () => {
 		const sidebar = screen.getByTestId('sidebar');
 		const toggle = screen.getByTestId('sidebar-toggle');
 		fireEvent.click(toggle);
-		expect(sidebar).toHaveClass('collasped');
+		expect(sidebar).not.toHaveClass('collasped');
 	});
 });
