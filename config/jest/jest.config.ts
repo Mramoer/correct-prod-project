@@ -30,7 +30,7 @@ const config: Config = {
 		'node',
 	],
 
-	testMatch: ['<rootDir>src/**/*(*.)+(spec|test).[tj]s?(x)'],
+	testMatch: ['<rootDir>/../../src/**/*(*.)+(spec|test).[tj]s?(x)'],
 
 	modulePaths: ['<rootDir>../../src'],
 
