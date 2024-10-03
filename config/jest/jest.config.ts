@@ -32,11 +32,11 @@ const config: Config = {
 
 	testMatch: ['<rootDir>src/**/*(*.)+(spec|test).[tj]s?(x)'],
 
-	modulePaths: ['<rootDir>src'],
+	modulePaths: ['<rootDir>../../src'],
 
 	roots: ['<rootDir>'],
 
-	setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+	setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
 
 	moduleDirectories: ['node_modules', 'src'],
 	testEnvironment: 'jsdom',
